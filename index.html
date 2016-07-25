@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Which Pokemon Go starter are you?</title>
+<link href="bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #000000;
+	background-image:url(poke.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-color: #c01f2f;
+	background-position: left bottom;
+}
+
+#main {
+width: 50%;
+border: 1px gray solid;
+margin: auto;
+padding: 10px;
+background-color: white;
+border-radius: 10px;
+}
+
+#header {
+margin-top: 0;
+border: 0px solid black;
+padding: 5px;
+height: auto;
+
+
+}
+
+.container {
+	width: 90%;
+	
+	}
+@media screen and (max-width: 410px) { 
+#main {
+width: 80%}
+
+
+
+
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header"><center><img src="banner2.png" width="90%"><h1><strong>Which Pokémon Go starter are you?</strong></h1></center></div>
+<form id="form1">
+	
+	
+	<div class="container">
+	<div class="row">
+	<div class="col-md-6">
+	<p>Pick a color: </p>
+	<input type="radio" name="color" value="bulb"/> Green<br>
+	<input type="radio" name="color" value="squ"/> Blue<br>
+	<input type="radio" name="color" value="charm"/> Red<br>
+	<input type="radio" name="color" value="pika"/> Yellow<br><br></div>
+	
+	<div class="col-md-6">
+	<p>Pick a pet from the options below:</p>
+	<input type="radio" name="pet" value="bulb"/> Venus Flytrap<br>
+	<input type="radio" name="pet" value="pika"/> Mouse<br>
+	<input type="radio" name="pet" value="charm"/> Lizard<br>
+	<input type="radio" name="pet" value="squ"/> Turtle<br><br></div>
+	</div>
+
+	<div class="row">
+	<div class="col-md-6">
+	<p>What is your favorite element?</p>
+	<input type="radio" name="element" value="charm"/> Fire<br>
+	<input type="radio" name="element" value="bulb"/> Earth<br>
+	<input type="radio" name="element" value="squ"/> Water<br>
+	<input type="radio" name="element" value="pika"/> Electric<br><br></div>
+	
+	<div class="col-md-6">
+	<p>What is your favorite move?</p>
+	<input type="radio" name="move" value="bulb"/> Razor Leaf<br>
+	<input type="radio" name="move" value="charm"/> Flamethrower<br>
+	<input type="radio" name="move" value="squ"/> Bubblebeam<br>
+	<input type="radio" name="move" value="pika"/> Thunder<br><br></div>
+	</div>
+	
+	<div class="row">
+	<div class="col-md-6">
+	<p>What is your favorite season?</p>
+	<input type="radio" name="season" value="bulb"/> Spring<br>
+	<input type="radio" name="season" value="charm"/> Summer<br>
+	<input type="radio" name="season" value="pika"/> Fall<br>
+	<input type="radio" name="season" value="squ"/> Winter<br><br></div>
+	
+	<div class="col-md-6">
+	<p>What is your ideal summer activity?</p>
+	<input type="radio" name="summer" value="bulb"/> Harvesting fruit from my garden<br>
+	<input type="radio" name="summer" value="squ"/> Going swimming<br>
+	<input type="radio" name="summer" value="charm"/> Roasting marshmallows<br>
+	<input type="radio" name="summer" value="pika"/> Lighting off fireworks<br><br></div>
+	</div>
+	
+	<div class="row">
+	<div class="col-md-6">
+	<p>Which environment would you live in?</p>
+	<input type="radio" name="enviro" value="bulb"/> Lush Forest<br>
+	<input type="radio" name="enviro" value="squ"/> Tropical Rainforest<br>
+	<input type="radio" name="enviro" value="charm"/> Desert<br>
+	<input type="radio" name="enviro" value="pika"/> Tundra<br><br></div>
+	
+	<div class="col-md-6">
+	<br><input type="submit" value="Submit">
+	
+
+
+<p id="answer1"></p>
+<p id="answer2"></p>
+<p id="answer3"></p>
+<p id="answer4"></p>
+<p id="answer5"></p>
+
+</div>
+</div>
+</form>
+</div>
+</div>
+
+<script>
+
+	document.getElementById("form1").onsubmit=function() {
+	   
+	  color = document.querySelector('input[name = "color"]:checked').value;
+	  pet = document.querySelector('input[name = "pet"]:checked').value;
+	  element = document.querySelector('input[name = "element"]:checked').value;
+	  move = document.querySelector('input[name = "move"]:checked').value;
+	  season = document.querySelector('input[name = "season"]:checked').value;
+	  summer = document.querySelector('input[name = "summer"]:checked').value;
+	  enviro = document.querySelector('input[name = "enviro"]:checked').value;
+	    
+	  // initialize score variables 
+	  bulb = 0;
+	  charm = 0;
+	  squ = 0;
+	  pika = 0;
+	  
+	  //function to calculate score for each question
+	  function eachscore(x){
+	  if(x == "bulb") { bulb = bulb + 1}
+	  if(x == "charm") { charm = charm + 1}
+	  if(x == "squ") { squ = squ + 1}
+	  if(x == "pika") { pika = pika + 1}
+	  
+	  }
+	  // for the above function, you could also change the 1 to a variable so you could give more points for certain questions
+	  
+	  //call function for each question
+	  eachscore(window["color"]);
+	  eachscore(window["pet"]);
+	  eachscore(window["element"]);
+	  eachscore(window["move"]);
+	  eachscore(window["season"]);
+	  eachscore(window["summer"]);
+ 	  eachscore(window["enviro"]);
+	  
+	  
+	//  document.getElementById("answer1").innerHTML=charm; 
+	//  document.getElementById("answer2").innerHTML=bulb;
+	// document.getElementById("answer3").innerHTML=squ; 
+	// document.getElementById("answer4").innerHTML=pika; 
+	  
+	  
+	  all = [bulb, charm, squ, pika];
+	  
+	//get the max score  in the array
+	maxscore = Math.max.apply(Math,all);
+	
+    //figure out which score is the max score by identifying its index number
+	for(i=0; i<all.length; i++) {
+	if(all[i]==maxscore) {
+	highest = i;
+	}
+	}
+	
+
+// object holding scores and feedback	
+scores = [{index:0, feedback: "You are Bulbasaur! <br /><img src='bulb.png' width='50%'/>"},
+{index:1, feedback: "You are Charmander! <br /><img src='charm.png' width='50%' />"},
+{index:2, feedback: "You are Squirtle! <br /><img src='squirt.png' width='50%' />"},
+{index:3, feedback: "You are Pikachu! <br /><img src='p.png' width='50%' />"}];
+
+
+//loop to match index to score and reply with feedback
+for(i=0;i<scores.length; i++) {
+if(highest == scores[i].index) {
+document.getElementById("answer5").innerHTML = scores[i].feedback;
+document.getElementById("answer5").style.fontWeight = "bold";
+}
+}
+
+return false; 
+	   }
+</script>
+
+
+
+</div>
+
+</body>
+
+</html>
